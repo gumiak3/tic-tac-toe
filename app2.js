@@ -36,14 +36,6 @@ const switchPlayer = function () {
 };
 
 const checkWinner = function () {
-  if (positions.indexOf("") === -1) {
-    console.log("It's a draw!");
-    winnerHeader.textContent = "Draw!";
-    winnerLabel.textContent = "";
-    gameState.classList.add("win");
-    isRunning = false;
-    return -1;
-  }
   for (const [index, posibilities] of winsPosibility.entries()) {
     const [a, b, c] = posibilities;
     if (
@@ -60,6 +52,14 @@ const checkWinner = function () {
       winnerLabel.textContent = turn;
       return -1;
     }
+  }
+  if (positions.indexOf("") === -1) {
+    console.log("It's a draw!");
+    winnerHeader.textContent = "Draw!";
+    winnerLabel.textContent = "";
+    gameState.classList.add("win");
+    isRunning = false;
+    return -1;
   }
 };
 
