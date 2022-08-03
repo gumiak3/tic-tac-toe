@@ -5,7 +5,7 @@ const field = document.querySelectorAll(".field");
 const playerLabel = document.querySelector(".turn");
 const gameState = document.querySelector(".game-container");
 const winnerLabel = document.querySelector(".winner");
-
+const winnerHeader = document.querySelector(".winner-label");
 const winsPosibility = [
   [0, 1, 2],
   [3, 4, 5],
@@ -38,6 +38,9 @@ const switchPlayer = function () {
 const checkWinner = function () {
   if (positions.indexOf("") === -1) {
     console.log("It's a draw!");
+    winnerHeader.textContent = "Draw!";
+    winnerLabel.textContent = "";
+    gameState.classList.add("win");
     isRunning = false;
     return -1;
   }
@@ -53,6 +56,7 @@ const checkWinner = function () {
       isRunning = false;
       console.log(`PLAYER ${turn} WON! 🎈!`);
       gameState.classList.add("win");
+      winnerHeader.textContent = "Winner!";
       winnerLabel.textContent = turn;
       return -1;
     }

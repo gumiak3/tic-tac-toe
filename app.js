@@ -27,6 +27,7 @@ const checkWinner = () => {
   }
   if (draw === 9) {
     console.log("draw");
+
     return -1;
   }
   // horizontal check
